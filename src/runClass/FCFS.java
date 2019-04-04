@@ -40,5 +40,15 @@ public class FCFS {
             test[i].print();
         }
     }
+    public void run(Process[] p){
+
+
+    }
+    public void run(){
+        Process[] p = genTestProcess();
+        Time sys = new Time();
+        sys = p[1].getArrive();
+        
+    }
 }
 

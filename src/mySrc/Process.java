@@ -55,6 +55,9 @@ public class Process {
     public int getArriveVar(){
         return this.arrive.val;
     }
+    public Time getArrive() {
+        return this.arrive;
+    }
     public float getWeightCycling(){
         return this.weightCycling;
     }
