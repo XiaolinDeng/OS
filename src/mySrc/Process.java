@@ -31,6 +31,17 @@ public class Process {
                 "\tNeed time:" + this.need.toStr()
         );
      }
+     public void printp(){
+        System.out.println(
+                "Process:" + name +
+                "\tArrive:" +arrive.toStr() +
+                "\tNeed:" + need.toStr() +
+                "\tStart" + start.toStr() +
+                "\tFinish" + finish.toStr() +
+                "\tCycling" + getCycling() +
+                "\tWeight" + getWeightCycling()
+        );
+     }
 
     public void calcStartTime(Time sys) {
         if (this.arrive.val < sys.val) this.start.equalTime(sys);
@@ -40,9 +51,7 @@ public class Process {
         this.finish.equalTime(start);
         this.finish.addTime(need);
     }
-    public void calcCycling(Time sys){
-        this.calcStartTime(sys);
-        this.calcFinishTime();
+    public void calcCycling( ){
         this.cycling = this.finish.val - this.arrive.val;
     }
     public void calcWeightCycling(){
@@ -58,8 +67,22 @@ public class Process {
     public Time getArrive() {
         return this.arrive;
     }
+    public Time getNeed(){
+        return this.need;
+    }
+    public Time getFinish(){
+        return finish;
+    }
     public float getWeightCycling(){
         return this.weightCycling;
+    }
+    public void setStart(Time t){
+        this.start.setHour(t.getHour());
+        this.start.setMin(t.getMin());
+        this.start.checkTime();
+    }
+    public void setFinish(Time t){
+        this.finish.setHour(t.getHour());
     }
 
 }

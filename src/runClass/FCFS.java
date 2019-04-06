@@ -31,23 +31,35 @@ public class FCFS {
     public void testSort () {
         System.out.println("Before sort:");
         Process[] test = genTestProcess();
-        for (int i = 0; i< test.length ;i++){
-            test[i].print();
+        for (Process process : test) {
+            process.print();
         }
         System.out.println("After sort:");
         this.sortProcess(test);
-        for (int i = 0; i< test.length ;i++){
-            test[i].print();
+        for (Process process : test) {
+            process.print();
         }
     }
     public void run(Process[] p){
-
+        sortProcess(p);
 
     }
     public void run(){
         Process[] p = genTestProcess();
-        Time sys = new Time();
+        new Time();
+        Time sys;
         sys = p[1].getArrive();
+        for (Process process : p) {
+            if (process.getArriveVar() < sys.getVal()) {
+                process.setStart(sys);
+                process.calcFinishTime();
+                sys = process.getFinish();
+                process.calcCycling();
+                process.calcWeightCycling();
+                process.print();
+            }
+
+        }
         
     }
 }

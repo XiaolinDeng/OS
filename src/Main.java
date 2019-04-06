@@ -9,7 +9,7 @@ class TimeTest{
     Process p = new Process("New",t1,t2);
     public void run() {
         p.print();
-        p.calcCycling(sys);
+        p.calcCycling();
         p.calcWeightCycling();
         System.out.println("\n" + p.getCycling() + "\t" + p.getWeightCycling());
     }
@@ -18,7 +18,7 @@ class TimeTest{
 class FCFSTest{
     FCFS test = new FCFS();
     public void run(){
-        test.testSort();
+        test.run();
     }
 }
 
