@@ -33,13 +33,13 @@ public class Process {
      }
      public void printp(){
         System.out.println(
-                "Process:" + name +
-                "\tArrive:" +arrive.toStr() +
-                "\tNeed:" + need.toStr() +
-                "\tStart" + start.toStr() +
-                "\tFinish" + finish.toStr() +
-                "\tCycling" + getCycling() +
-                "\tWeight" + getWeightCycling()
+                "Process: " + name +
+                "\t Arrive: " +arrive.toStr() +
+                "\t Need: " + need.toStr() +
+                "\t Start: " + start.toStr() +
+                "\t Finish: " + finish.toStr() +
+                "\t Cycling: " + getCycling() +
+                "\t Weight: " + getWeightCycling()
         );
      }
 

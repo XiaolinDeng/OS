@@ -56,11 +56,19 @@ public class FCFS {
                 sys = process.getFinish();
                 process.calcCycling();
                 process.calcWeightCycling();
-                process.print();
+                process.printp();
             }
-
         }
-        
+        double avgCycle = 0;
+        double avgWeight = 0;
+        for(Process pre : p) {
+            avgCycle = avgCycle + (double) pre.getCycling();
+            avgWeight = avgWeight + (double) pre.getWeightCycling();
+        }
+        avgCycle = avgCycle/p.length;
+        avgWeight = avgWeight/p.length;
+        System.out.println("Average Cycleing Time is:" + avgCycle +
+                "\nAverage Weight is:" + avgWeight);
     }
 }
 
