@@ -20,8 +20,7 @@ public class FCFS {
         for (int i = 0; i < test.length; i++) {
             for (int j = i; j < test.length-1; j++){
                 if(test[j].getArriveVar() > test[j+1].getArriveVar()){
-                    Process tmp = new Process();
-                    tmp = test[j];
+                    Process tmp = test[j];
                     test[j] = test[j+1];
                     test[j+1] = tmp;
                 }
@@ -46,18 +45,23 @@ public class FCFS {
     }
     public void run(){
         Process[] p = genTestProcess();
+        sortProcess(p);
         new Time();
         Time sys;
-        sys = p[1].getArrive();
+        sys = p[0].getArrive();
         for (Process process : p) {
             if (process.getArriveVar() < sys.getVal()) {
                 process.setStart(sys);
-                process.calcFinishTime();
-                sys = process.getFinish();
-                process.calcCycling();
-                process.calcWeightCycling();
-                process.printp();
+
             }
+            else {
+                process.setStart(process.getArrive());
+            }
+            process.calcFinishTime();
+            sys = process.getFinish();
+            process.calcCycling();
+            process.calcWeightCycling();
+            process.printp();
         }
         double avgCycle = 0;
         double avgWeight = 0;
